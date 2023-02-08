@@ -19,42 +19,38 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text("모임 추가하기",
             style: TextStyle(
-              color: Colors.black,
+              color: Colors.white,
               fontSize: 22,
               fontWeight: FontWeight.bold,
               fontFamily: 'SpoqaHanSansNeo',
             )),
-        automaticallyImplyLeading: true,
         centerTitle: true,
-        backgroundColor: const Color(0xffFFFFFF),
-        elevation: 0,
+        backgroundColor: Colors.blueGrey,
       ),
       body: Container(
         //decoration: BoxDecoration(border: Border.all(color: Colors.blue)),
         color: const Color(0xffFFFFFF),
-        //color: Colors.blueGrey,
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.center,
           children: [
-
             Expanded(
               flex: 1,
               child: Container(
-                decoration: BoxDecoration(border: Border.all(color: Colors.blue)),
+                //decoration: BoxDecoration(border: Border.all(color: Colors.blue)),
                 width: double.infinity,
                 child: ListView.builder(
                   scrollDirection: Axis.vertical,
                   padding: const EdgeInsets.all(10),
-                  itemCount: 6,
+                  itemCount: 3,
                   itemBuilder: (BuildContext context, int index) {
                     return Card(
                         //alignment: Alignment.center,
-                        elevation: 10,
-                        margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                        elevation: 3,
+                        margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                         color: Colors.white,
                         child: Container(
-                          height: 50,
-                          child: Text("음식점 $index"),
+                          height: 100,
+                          child: Text("음식점 $index", style: const TextStyle(fontFamily: 'SpoqaHanSansNeo')),
                         )
                     );
                   },
@@ -63,15 +59,15 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               decoration: BoxDecoration(border: Border.all(color: Colors.blue)),
-              height: 50,
+              height: 70,
               child: Center(
                 child: ElevatedButton.icon(
-                  onPressed: () { Get.to(AddList()); },
-                  //onPressed: Navigator.push(context, MaterialPageRoute(builder: (context) => AddList()));
+                  //onPressed: () { Get.to('/2'); },
+                  onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => AddList()));},
                   icon: const Icon(Icons.add, size: 13),
-                  label: const Text('추가하기', style: TextStyle(fontSize: 13)),
+                  label: const Text('추가하기', style: TextStyle(fontSize: 13, fontFamily: 'SpoqaHanSansNeo', fontWeight: FontWeight.bold)),
                   style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(100, 40), backgroundColor: const Color(0xff5F9DF7)),
+                      minimumSize: const Size(100, 50), backgroundColor: Colors.blueGrey),
                 ),
               ),
             ),
