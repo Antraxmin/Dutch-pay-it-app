@@ -17,31 +17,44 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('목록'),
+        automaticallyImplyLeading: true,
         centerTitle: true,
+        backgroundColor: const Color(0xffFFFFFF),
+        elevation: 0,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Container(
-          //   color: Colors.blueGrey[200],
-          //   width: 300,
-          //   height: 400,
-          //   child: ListView.builder(
-          //     scrollDirection: Axis.vertical,
-          //     padding: EdgeInsets.all(5),
-          //     itemCount: listcount+1,
-          //     itemBuilder: (BuildContext context, int index) {
-          //       return Container(
-          //         margin: EdgeInsets.all(3),
-          //         height: 50,
-          //         color: Colors.white,
-          //         alignment: Alignment.center,
-          //         child: Text('$listcount')
-          //       );
-          //     },
-          //   ),
-          // ),
+          Container(
+            margin: const EdgeInsets.all(20),
+            alignment: Alignment.centerLeft,
+            child: const Text("모임 추가하기",
+              style: TextStyle(
+              color: Colors.black,
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'SpoqaHanSansNeo',
+            )),
+          ),
+           Container(
+             color: Colors.blueGrey[200],
+             width: 300,
+             height: 400,
+             child: ListView.builder(
+               scrollDirection: Axis.vertical,
+               padding: const EdgeInsets.all(5),
+               itemCount: listcount+1,
+               itemBuilder: (BuildContext context, int index) {
+                 return Container(
+                   margin: const EdgeInsets.all(3),
+                   height: 50,
+                   color: Colors.white,
+                   alignment: Alignment.center,
+                   child: Text('$listcount')
+                 );
+               },
+             ),
+           ),
           const SizedBox(
               height: 30
           ),
@@ -62,16 +75,16 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(
             height: 10,
           ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: [
-          //     ElevatedButton(onPressed: () {}, child: Text('초기화')),
-          //     SizedBox(
-          //       width: 43,
-          //     ),
-          //     ElevatedButton(onPressed: () {}, child: Text('정산하기'))
-          //   ],
-          // )
+           Row(
+             mainAxisAlignment: MainAxisAlignment.center,
+             children: [
+               ElevatedButton(onPressed: () {}, child: Text('초기화')),
+               SizedBox(
+                 width: 43,
+               ),
+               ElevatedButton(onPressed: () {}, child: Text('정산하기'))
+             ],
+           )
         ],
       ),
     );
