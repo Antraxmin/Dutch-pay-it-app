@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'addlist.dart';
 
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  static const String _title = 'Flutter Code Sample';
-
+  static const String _title = '더치페it';
   const MyApp({super.key});
 
   @override
@@ -52,7 +52,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => setState(() {}),
+        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const AddList()));},
         tooltip: '모임 추가하기',
         backgroundColor: const Color(0xff002B5B),
         child: const Icon(Icons.add),
