@@ -32,10 +32,21 @@ class _MenuListState extends State<MenuList> {
               ),
             ),
             Container(
+              margin: const EdgeInsets.all(30),
               width: double.infinity,
-              height: 100,
+              height: 50,
               decoration: BoxDecoration(border: Border.all(color: Colors.blue)),
-              child: const Text("버튼"),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                primary: const Color(0xff002B5B), // background
+                onPrimary: Colors.white, // foreground
+                ),
+                onPressed: () {
+                  //Navigator.push(context, MaterialPageRoute(builder: (context) => MenuList()));
+                },
+                child: const Text('정산하기', style: TextStyle(
+                  fontSize: 17, fontFamily: 'SpoqaHanSansNeo')),
+                ),
             ),
           ],
         ),
