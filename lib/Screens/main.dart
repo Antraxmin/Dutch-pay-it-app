@@ -1,45 +1,63 @@
-import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:dutch_pay_it/Screens/addInfo.dart';
-import 'package:dutch_pay_it/Screens/addlist.dart';
-import 'package:dutch_pay_it/Screens/calculate.dart';
-import 'package:dutch_pay_it/Screens/home.dart';
-import 'package:dutch_pay_it/Screens/takercp.dart';
-import 'package:get/get.dart';
 
-/* void main() {
-   runApp(const MyApp());
- }*/
-
-void main() {
-  runApp(const MaterialApp(home: Scaffold(body: HomePage(title: ''))));
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  static const String _title = 'Flutter Code Sample';
+
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      getPages: [
-        GetPage(name: '/1', page: () => HomePage(title: '')),
-        GetPage(name: '/2', page: () => AddList()),
-        GetPage(name: '/3', page: () => TakeRcp(peoplelist: const [], shop: '',)),
-        GetPage(name: '/4', page: () => MenuList(peopleList: const [])),
-        GetPage(name: '/5', page: () => Calculate()),
-      ],
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
-      ),
-      home: AnimatedSplashScreen(
-        splash: Icons.monetization_on,
-        duration: 3000,
-        splashTransition: SplashTransition.fadeTransition,
-        nextScreen: const HomePage(title: '목록'),
-      ),
+    return const MaterialApp(
+      title: _title,
+      home: MyStatefulWidget(),
     );
   }
 }
 
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({Key,key}) : super(key: key);
+
+  @override
+  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+          Expanded(
+            flex: 4,
+            child: Container(
+              width: double.infinity,
+                color: const Color(0xff002B5B),
+                child: const Text("정산하러 가볼까요?", style: TextStyle(fontSize: 20, color: Colors.white))
+            )
+          ),
+          Expanded(
+            flex: 6,
+              child: Container(
+                color: const Color(0xffEEEEEE),
+              )
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          height: 50.0,
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => setState(() {}),
+        tooltip: '모임 추가하기',
+        backgroundColor: const Color(0xff002B5B),
+        child: const Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
+  }
+}
