@@ -8,6 +8,8 @@ class Calculate extends StatefulWidget {
 }
 
 class _CalculateState extends State<Calculate> {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,6 +31,10 @@ class _CalculateState extends State<Calculate> {
                   width: double.infinity,
                   margin: const EdgeInsets.all(30),
                   decoration: BoxDecoration(border: Border.all(color: Colors.blue)),
+                  child: Card(
+                    child: addTile(),
+                    elevation: 3,
+                  ),
                 )
               ),
             ),
@@ -52,6 +58,27 @@ class _CalculateState extends State<Calculate> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget addTile() {
+    return ListView.separated(
+      itemCount: 3,
+      itemBuilder: (context, i) {
+        return ListTile(
+          title: Container(
+              padding: const EdgeInsets.fromLTRB(0, 5, 5, 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text('이름'),
+                  Text('금액'),
+                ],
+              )
+          ),
+          subtitle: const Text('목록'),
+        );
+      }, separatorBuilder: (BuildContext context, int index) { return const Divider(); },
     );
   }
 }
