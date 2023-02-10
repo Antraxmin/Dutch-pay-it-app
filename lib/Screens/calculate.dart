@@ -23,7 +23,13 @@ class _CalculateState extends State<Calculate> {
             Expanded(
               flex: 1,
               child: Container(
+                width: double.infinity,
                 decoration: BoxDecoration(border: Border.all(color: Colors.blue)),
+                child: Container(
+                  width: double.infinity,
+                  margin: const EdgeInsets.all(30),
+                  decoration: BoxDecoration(border: Border.all(color: Colors.blue)),
+                )
               ),
             ),
             Container(
