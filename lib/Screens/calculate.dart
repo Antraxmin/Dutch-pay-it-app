@@ -9,7 +9,6 @@ class Calculate extends StatefulWidget {
 
 class _CalculateState extends State<Calculate> {
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,20 +38,50 @@ class _CalculateState extends State<Calculate> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.all(30),
               width: double.infinity,
+              margin: const EdgeInsets.all(30),
               height: 50,
-              decoration: BoxDecoration(border: Border.all(color: Colors.blue)),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: const Color(0xff002B5B), // background
-                  onPrimary: Colors.white, // foreground
-                ),
-                onPressed: () {
-                  //Navigator.push(context, MaterialPageRoute(builder: (context) => MenuList()));
-                },
-                child: const Text('공유하기', style: TextStyle(
-                    fontSize: 17, fontFamily: 'SpoqaHanSansNeo')),
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      height: 50,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: const Color(0xffEEEEEE), // background
+                          onPrimary: const Color(0xff002B5B), // foreground
+                        ),
+                        onPressed: () {
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) => MenuList()));
+                        },
+                        child: const Text('공유하기', style: TextStyle(
+                            fontSize: 17, fontFamily: 'SpoqaHanSansNeo')),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 15,
+                    height: 50,
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      height: 50,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: const Color(0xff002B5B), // background
+                          onPrimary: Colors.white, // foreground
+                        ),
+                        onPressed: () {
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) => MenuList()));
+                        },
+                        child: const Text('공유하기', style: TextStyle(
+                            fontSize: 17, fontFamily: 'SpoqaHanSansNeo')),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
